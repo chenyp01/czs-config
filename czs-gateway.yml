@@ -19,7 +19,7 @@ zuul:
     czs-manage-process: /czs/mp/**
     czs-manage: /czs/m/**
   #屏蔽原先服务入口
-  ignored-patterns: /czs-*/**
+  #ignored-patterns: /czs-*/**
   #处理请求头为空的的问题（主要解决cookie问题）
   sensitive-headers:
   #超时时间（触发熔断机制）
