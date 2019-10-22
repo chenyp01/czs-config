@@ -3,7 +3,7 @@ server:
   servlet:
     session:
       timeout: 10
-    context-path: /manage
+    context-path: /czs-manage
   tomcat:
     uri-encoding: UTF-8
 spring:
