@@ -34,6 +34,16 @@ spring:
         max-idle: 10
         min-idle: 0
     timeout: 1000
+  datasource:
+    url: jdbc:mysql://119.29.53.220:13306/czs?characterEncoding=utf8&useSSL=false
+    username: root
+    password: root_123
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      max-active: 20
+      max-idle: 8
+      min-idle: 8
+      initial-size: 10
 pagehelper:
   helper-dialect: mysql
   reasonable: true
