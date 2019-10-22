@@ -1,0 +1,81 @@
+server:
+  port: 9905
+  servlet:
+    session:
+      timeout: 10
+    context-path: /manage-process
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: czs-manage-process
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  redis:
+    database: 0
+    host: 119.29.53.220
+    port: 6379
+    password: beasts
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    timeout: 1000
+  datasource:
+    url: jdbc:mysql://119.29.53.220:13306/czs?characterEncoding=utf8&useSSL=false
+    username: root
+    password: root_123
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      max-active: 20
+      max-idle: 8
+      min-idle: 8
+      initial-size: 10
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:9901/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+#设置超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

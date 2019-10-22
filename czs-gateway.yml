@@ -1,0 +1,38 @@
+server:
+  port: 9903
+spring:
+  application:
+    name: czs-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9901/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#访问地址映射，即将所有的服务（server-id）全部替换替换为czs应用的
+#例如：
+#   原先访问地址为：http://localhost:9903/czs-manage/book/search
+#   映射后访问地址：http://localhost:9903/czs/m/book/search
+zuul:
+  routes:
+    czs-manage-process: /czs/mp/**
+    czs-manage: /czs/m/**
+  #屏蔽原先服务入口
+  ignored-patterns: /czs-*/**
+  #处理请求头为空的的问题（主要解决cookie问题）
+  sensitive-headers:
+  #超时时间（触发熔断机制）
+  host:
+    socket-timeout-millis: 6000
+    connect-timeout-millis: 6000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
