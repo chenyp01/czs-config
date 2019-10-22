@@ -35,15 +35,16 @@ spring:
         min-idle: 0
     timeout: 1000
   datasource:
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://119.29.53.220:13306/czs?characterEncoding=utf8&useSSL=false
     username: root
     password: root_123
-    driver-class-name: com.mysql.jdbc.Driver
-    tomcat:
-      max-active: 20
-      max-idle: 8
-      min-idle: 8
-      initial-size: 10
+    MaxActive: 30
+    minIdle: 5
+    maxWait: 10000
+    validationQuery: SELECT 'x'
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
 pagehelper:
   helper-dialect: mysql
   reasonable: true
