@@ -58,7 +58,8 @@ eureka:
       defaultZone: http://localhost:9901/eureka
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    #instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    instance-id: 47.100.202.151:${server.port}
 feign:
   hystrix:
     enabled: true
