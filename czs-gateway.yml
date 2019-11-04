@@ -13,7 +13,7 @@ eureka:
     instance-id: 47.100.202.151:${server.port}
 #访问地址映射，即将所有的服务（server-id）全部替换替换为czs应用的
 #例如：
-#   原先访问地址为：http://localhost:9903/czs-manage/book/search
+#   原先访问地址为：http://localhost:9904/czs-manage/book/search
 #   映射后访问地址：http://localhost:9903/czs/m/book/search
 zuul:
   routes:
