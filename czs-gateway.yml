@@ -19,6 +19,7 @@ zuul:
   routes:
     czs-manage-process: /czs/mp/**
     czs-manage: /czs/m/**
+    czs-admin: /czs/admin/**
   #屏蔽原先服务入口
   #ignored-patterns: /czs-*/**
   #处理请求头为空的的问题（主要解决cookie问题）
