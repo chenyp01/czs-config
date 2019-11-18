@@ -27,7 +27,7 @@ spring:
     host: 119.29.53.220   # 腾讯云
     # host: 47.100.202.151    # 阿里云
     port: 6379
-    #password: beasts
+    password: beasts
     jedis:
       pool:
         max-active: 200
