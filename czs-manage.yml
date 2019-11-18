@@ -25,8 +25,8 @@ spring:
   #redis配置
   redis:
     database: 0
-    # host: 119.29.53.220   # 腾讯云
-    host: 47.100.202.151    # 阿里云
+    host: 119.29.53.220   # 腾讯云
+    # host: 47.100.202.151    # 阿里云
     port: 6379
     # password: beasts
     jedis:
